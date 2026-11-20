@@ -1,0 +1,54 @@
+=============================================================================
+PACOTE PORTÁTIL DEFINITIVO: ADAPTADOR USB WI-FI "FREE 4" (ZT9101 / ZTOPMICRO)
+=============================================================================
+
+Este pacote contém tudo o que é necessário para plugar o adaptador USB Wi-Fi
+em QUALQUER computador com Windows (Windows 11, 10, 8.1, 8, 7 ou Windows Server)
+e fazê-lo funcionar imediatamente, sem necessidade de internet ou CD.
+
+-----------------------------------------------------------------------------
+POR QUE ESTE ADAPTADOR NÃO FUNCIONAVA AUTOMATICAMENTE?
+-----------------------------------------------------------------------------
+1. O dispositivo físico possui tecnologia "ZeroCD": ao ser conectado, ele
+   inicialmente se apresenta ao Windows como uma unidade de CD-ROM virtual
+   (USB\VID_2310&PID_1A2B), e não como uma placa de rede.
+2. Para virar Wi-Fi (USB\VID_2310&PID_9086), o Windows precisa emitir um
+   comando de ejeção SCSI para a unidade virtual.
+3. Além do driver (.sys e .inf assinados WHQL pela Microsoft), o chipset
+   exige obrigatoriamente o carregamento de um microcódigo externo (firmware.bin)
+   que deve estar localizado em "C:\Program Files (x86)\ZTOPMICRO\firmware.bin".
+   Sem este arquivo, o Windows reconhece o dispositivo com erro Code 10 ou 43.
+
+-----------------------------------------------------------------------------
+COMO USAR EM QUALQUER NOVO COMPUTADOR:
+-----------------------------------------------------------------------------
+
+OPÇÃO 1 (Recomendada - Não requer Python):
+1. Conecte o USB Wi-Fi no computador.
+2. Copie esta pasta (ou coloque em um Pen Drive) e execute:
+   --> Instalador_WiFi_Free4.exe
+3. Conceda permissão de Administrador quando solicitado.
+4. O programa:
+   - Detecta e ejeta a partição CD-ROM do USB.
+   - Instala o firmware e o serviço de comutação automática.
+   - Instala os drivers oficiais WHQL assinados pela Microsoft.
+   - Reinicia a interface e ativa a rede Wi-Fi.
+
+OPÇÃO 2 (Via Script Python):
+1. Conecte o USB Wi-Fi.
+2. Abra o terminal como Administrador e rode:
+   --> python wifi_installer.py
+
+OPÇÃO 3 (Via Arquivo Batch):
+1. Clique com o botão direito em "Instalar_WiFi.bat" -> "Executar como Administrador".
+
+-----------------------------------------------------------------------------
+CONTEÚDO DO PACOTE:
+-----------------------------------------------------------------------------
+- Instalador_WiFi_Free4.exe : Aplicativo executável standalone (pronto para uso)
+- wifi_installer.py         : Código-fonte em Python
+- Instalar_WiFi.bat         : Lançador em lote (.bat)
+- payload/                  : Drivers WHQL (x64, x86, XP), firmware.bin e Auto_eject.exe
+
+Status: 100% testado, validado e funcional!
+=============================================================================

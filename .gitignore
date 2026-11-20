@@ -1,0 +1,9 @@
+# Git Ignore
+build/
+dist/
+extracted/
+*.cab
+*.zip
+*.spec
+__pycache__/
+*.pyc
